@@ -24,7 +24,7 @@ jobs:
       - name: Run tests
         run: npm test
         env:
-          CHROME_BIN: /usr/bin/google-chrome --headless --no-sandbox --disable-gpu
+          DISPLAY: ":99"
 
       - run: npm build
 
