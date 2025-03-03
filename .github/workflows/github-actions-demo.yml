@@ -11,6 +11,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22.11.0
+      - name : installation
       - run : npm ci
       - run : ng test
       - run : ng build
