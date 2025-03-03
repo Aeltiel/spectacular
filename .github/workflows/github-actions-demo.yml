@@ -1,19 +1,31 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name : Use Node.js 22.11.0
+
+      - name: Use Node.js 22.11.0
         uses: actions/setup-node@v4
         with:
           node-version: 22.11.0
-      - run : npm ci
-      - run : npm test
+
+      - run: npm ci
+
+      # Installe Chrome
+      - name: Install Chrome
+        run: sudo apt-get install -y google-chrome-stable
+
+      # Définit Chrome headless comme navigateur par défaut et exécute les tests
+      - name: Run tests
+        run: npm test
         env:
-          CHROME_BIN: google-chrome --headless --no-sandbox --disable-gpu
-      - run : npm build
+          CHROME_BIN: /usr/bin/google-chrome --headless --no-sandbox --disable-gpu
+
+      - run: npm build
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
