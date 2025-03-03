@@ -15,5 +15,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - run : echo "ng test"
+      - run : echo "ng build"
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
