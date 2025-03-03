@@ -6,12 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
       - name : Use Node.js 22.11.0
         uses: actions/setup-node@v4
         with:
           node-version: 22.11.0
-      - name : installation
       - run : npm ci
       - run : ng test
       - run : ng build
