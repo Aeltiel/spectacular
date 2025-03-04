@@ -13,7 +13,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22.11.0
-
       - run: npm ci
 
       # Installe Chrome
@@ -23,9 +22,5 @@ jobs:
       # Définit Chrome headless comme navigateur par défaut et exécute les tests
       - name: Run tests
         run: npm test
-        env:
-          DISPLAY: ":99"
-
       - run: npm build
-
       - run: echo "🍏 This job's status is ${{ job.status }}."
