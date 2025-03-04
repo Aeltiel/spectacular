@@ -22,5 +22,5 @@ jobs:
       # Définit Chrome headless comme navigateur par défaut et exécute les tests
       - name: Run tests
         run: npm test
-      - run: npm build
+      - run: npm run build
       - run: echo "🍏 This job's status is ${{ job.status }}."
